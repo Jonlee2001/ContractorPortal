@@ -1,0 +1,13 @@
+body{
+	background: #efefef;
+}
+.container{
+	background: #fff;
+	margin-top: 60px;
+}
+@media (min-width: 1800px){
+	.container {
+		width: 1850px;
+		
+	}
+}
