@@ -8,8 +8,13 @@
 <title><g:message code="default.show.label" args="[entityName]" /></title>
 </head>
 <body>
-	<div class="row" style="margin-top: 10px;">
-		<div class="col-xs-6 form-inline">
+	<div class="row">
+		<div class="col-xs-8">
+			<h1 class="page-header">
+				Job #${openJobsInstance.id } : <small> ${openJobsInstance.category }
+					- ${openJobsInstance.subCategory }
+				</small>
+			</h1>
 			<div class="form-group">
 				<g:link action="index" class="btn btn-sm btn-primary">
 					<i class="glyphicon glyphicon-chevron-left"></i> Back
@@ -29,19 +34,8 @@
 				</div>
 			</sec:ifAnyGranted>
 		</div>
-		<div class="col-xs-6">
-			<h4 class="pull-right">Last Updated: <g:formatDate date="${openJobsInstance.lastUpdated}" format="dd/MM/yyyy HH:mm"/></h4>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-8">
-			<h1>
-				Job #${openJobsInstance.id } : <small> ${openJobsInstance.category }
-					- ${openJobsInstance.subCategory }
-				</small>
-			</h1>
-		</div>
-		<div class="col-xs-4 pull-right text-right">
+		<div class="col-xs-4 pull-right text-right" style="margin-top: 35px;">
+			<h4 class="pull-right">Last Updated: <g:formatDate date="${openJobsInstance.lastUpdated}" format="dd/MM/yyyy HH:mm"/></h4><br />
 			<h3>
 				<g:if test="${openJobsInstance.filter1 == 50 }">
 					<span class="label label-info text-center">New</span>
@@ -66,46 +60,42 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-xs-12">
-			<h3>Job Details</h3>
-		</div>
-	</div>
+
 	<div class="row">
 		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="control-label">Fault Details:</label>
-				<p class="form-control-static">
-					${openJobsInstance?.faultDetails}
-				</p>
-			</div>
-		</div>
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="control-label">Fault Location:</label>
-				<p class="form-control-static">
-					${PMMS.Tbljobs.get(openJobsInstance.id)?.address}
-				</p>
-			</div>
-			<div class="row">
-				<div class="form-group col-xs-4 text-center">
-					<label class="control-label">Date reported to PMMS:</label>
-					<p class="form-control-static">
-						<g:formatDate date="${openJobsInstance?.dateReceived}"
-							format="dd/MM/yyyy" />
-					</p>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Job Details</h3>
 				</div>
-				<div class="form-group col-xs-4 text-center">
-					<label class="control-label">Date job issued:</label>
-					<p class="form-control-static">
-						<g:formatDate date="${openJobsInstance?.dateInformed}"
-							format="dd/MM/yyyy" />
-					</p>
-				</div>
-				<div class="form-group col-xs-4 text-center">
-					<label class="control-label">Work Priority:</label>
-					<p class="form-control-static " style="font-size: 1.2em;">
-						<g:if test="${openJobsInstance.priority == 1 }">
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="control-label">Fault Details:</label>
+						<p class="form-control-static">
+							${openJobsInstance?.faultDetails}
+						</p>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Fault Location:</label>
+						<p class="form-control-static">
+							${PMMS.Tbljobs.get(openJobsInstance.id)?.address}
+						</p>
+					</div>
+					<div class="form-group col-xs-3 text-center">
+						<label class="control-label">Date reported to PMMS:</label>
+						<p class="form-control-static">
+							<g:formatDate date="${openJobsInstance?.dateReceived}" format="dd/MM/yyyy" />
+						</p>
+					</div>
+					<div class="form-group col-xs-3 text-center">
+						<label class="control-label">Date job issued:</label>
+						<p class="form-control-static">
+							<g:formatDate date="${openJobsInstance?.dateInformed}"format="dd/MM/yyyy" />
+						</p>
+					</div>
+					<div class="form-group col-xs-3 text-center">
+						<label class="control-label">Work Priority:</label>
+						<p class="form-control-static " style="font-size: 1.2em;">
+							<g:if test="${openJobsInstance.priority == 1 }">
 								<i class="glyphicon glyphicon-flag text-danger" title="1 Day"></i> Today
 							</g:if>
 							<g:if test="${openJobsInstance.priority == 7 }">
@@ -117,20 +107,22 @@
 							<g:if test="${openJobsInstance.priority == 30 }">
 								<i class="glyphicon glyphicon-flag text-warning" title="30 Days"></i> 30 days
 							</g:if>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<label class="control-label">Comments:</label>
-			<div class="well">
+						</p>
+					</div>
+				</div> <!-- end of panel-body -->
+			</div> <!-- end of panel -->
+		</div> <!-- end of col-xs-6 -->
+		<div class="col-xs-6">
+			<div class="panel panel-default">
+				<div class="panel-heading"><h3 class="panel-title">Comments</h3></div>
+			
+			
+			<div class="panel-body">
 				<span style="white-space: pre-line;">${PMMS.Tbljobs.get(openJobsInstance.id).comments }</span>
 			</div>
+			</div>
 		</div>
-	</div>
-
+	</div><!--  end of row -->
 	<div class="row">
 		<div class="col-xs-12">
 			<h3>

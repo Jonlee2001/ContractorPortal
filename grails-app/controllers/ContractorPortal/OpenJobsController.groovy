@@ -24,7 +24,7 @@ class OpenJobsController {
 	DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SS")
 	DateFormat df2 = new SimpleDateFormat("dd/MM/yyyy HH:mm")
     def index(Integer max) {
-        params.max = Math.min(max ?: 15, 100)
+        params.max = params.limit ? 50:100
 		def currentUser = springSecurityService.currentUser
 		def c = OpenJobs.createCriteria()
 		
@@ -36,15 +36,22 @@ class OpenJobsController {
 					}
 				}
 			}
-		
-        respond results, model:[openJobsInstanceCount: results.totalCount, contractorName: currentUser.contractor]
+		withFormat{
+			'json'{ render results as JSON}
+			'*'{ //respond results, model:[openJobsInstanceCount: results.totalCount, contractorName: currentUser.contractor]
+				render view: "indexNew"
+				}
+		}
+        
+		//render c.list() as JSON
+			
     }
 	@Transactional
     def show(OpenJobs openJobsInstance) {
 		if (openJobsInstance.cViewed == true){
 			System.out.println ("in here")
 			def job = PMMS.Tbljobs.get(openJobsInstance.id)
-			job.cViewed = 0
+			job.contractorViewed = 0
 			job.save(flush:true, failOnError: true)
 		}
         respond openJobsInstance

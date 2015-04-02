@@ -39,12 +39,12 @@ class Tbljobs {
 	Integer jobCode
 	Integer jobStatus
 	Integer deptId
-	Boolean cViewed
+	Boolean contractorViewed
 	Boolean assigneeViewed
 
 	static mapping = {
 		datasource 'pmms'
-		id column: "JobID"
+		id column: "JobID", sqlType: "int"
 		clientId column: "ClientID"
 		propertyId column: "PropertyID"
 		accountId column: "AccountID"
@@ -58,7 +58,7 @@ class Tbljobs {
 		telNoHome column: "TelNoHome"
 		telNoBus column: "TelNoBus"
 		telNoOther column: "TelNoOther"
-		faultDetails column: "FaultDetails"
+		faultDetails column: "FaultDetails", sqlType:"longtext"
 		dateInformed column: "DateInformed"
 		whoPays column: "WhoPays"
 		dateJobDone column: "DateJobDone"
@@ -71,8 +71,7 @@ class Tbljobs {
 		jobCode column: "JobCode"
 		jobStatus column: "JobStatus"
 		deptId column: "DeptID"		
-		cViewed column: "contractor_viewed"
-		assigneeViewed column: "assignee_viewed"
+		comments sqlType: "longtext"
 		version false
 	}
 

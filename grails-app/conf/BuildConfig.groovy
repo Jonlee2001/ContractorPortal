@@ -62,6 +62,7 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.2'
 		//compile ":db-reverse-engineer:0.5"
 		compile ":spring-security-core:2.0-RC2"
+		compile ":spring-security-ui:1.0-RC2"
 		compile ":excel-export:0.2.1"
 
         // plugins needed at runtime but not for compilation

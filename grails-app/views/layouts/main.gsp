@@ -18,22 +18,17 @@
 	href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
 <link rel="apple-touch-icon" sizes="114x114"
 	href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly/bootstrap.min.css">
+<!-- <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly/bootstrap.min.css">-->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
 	
- <link rel="stylesheet" href="${resource(dir: 'css', file: 'custom.css')}" type="text/css">
-		<!-- <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">-->
-<!-- Latest compiled and minified CSS -->
-
-
-<!-- Latest compiled and minified JavaScript -->
+ <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 <g:layoutHead />
 <g:javascript library="application" />
@@ -58,7 +53,7 @@
 		<div class="nav navbar-default navbar-fixed-top">
 		<ul class="nav navbar-nav navbar-left">
 			<li>
-				<img src="${resource(dir: 'images', file: 'PMMS Logo.png')}" height="60px" style="margin-left: 20px; padding: 5px;" />
+				<img src="${resource(dir: 'images', file: 'PMMSlogo.png')}" height="60px" style="margin-left: 20px; padding: 5px;" />
 			</li>
 			<li><button type="button" class="btn btn-sm btn-default navbar-btn" data-toggle="offcanvas" data-target=".navmenu">Filters</button></li>
 		</ul>
@@ -105,8 +100,16 @@
 		</div>
 	</sec:ifLoggedIn>
 	<div class="container">
-	<g:layoutBody />
-	<div class="footer" role="contentinfo"></div>
+		<g:layoutBody />
+	<nav class="navbar navbar-inverse navbar-fixed-bottom" style="font-size: 0.9em; min-height: 40px;">
+		<div class="col-xs-2"></div>
+		  <div class="col-xs-8 text-center">
+		  	<span style="color: #fff;">PMMS Contractor Portal &#169; 2015</span>
+		  </div>
+		  <div class="col-xs-2 text-right">
+		  	<span style="color: #fff;">Version: 1.0.0</span>
+		  </div>
+		</nav>
 	<div id="spinner" class="spinner" style="display: none;">
 		<g:message code="spinner.alt" default="Loading&hellip;" />
 	</div>

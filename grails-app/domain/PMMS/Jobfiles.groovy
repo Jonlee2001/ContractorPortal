@@ -12,7 +12,7 @@ class Jobfiles {
 	static mapping = {
 		datasource 'pmms'
 		
-		id column: "ID"
+		id column: "ID", sqlType: "int"
 		datePublished column: "DatePublished"
 		hardCopy column: "HardCopy"
 		version false

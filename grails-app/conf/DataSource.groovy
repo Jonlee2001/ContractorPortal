@@ -17,20 +17,20 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "create" // one of 'create', 'create-drop', 'update', 'validate', ''
             //url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
 			driverClassName = "com.mysql.jdbc.Driver"
 			username = "root"
 			password = "himson19155"
-			url = "jdbc:mysql://192.168.0.57:3306/contractor_portal"
+			url = "jdbc:mysql://192.168.0.10:3306/contractor_portal"
         }
 		dataSource_pmms {
-			dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+			dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
 			//url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
 			driverClassName = "com.mysql.jdbc.Driver"
 			username = "root"
 			password = "himson19155"
-			url = "jdbc:mysql://192.168.0.57:3306/pmms"
+			url = "jdbc:mysql://192.168.0.10:3306/pmms"
 		}
     }
     test {
