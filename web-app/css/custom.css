@@ -24,3 +24,17 @@ th {
 	/*border-color: transparent;*/
 	background: #eee;
 }
+.form-inline .form-control {
+  width: 100%;
+}
+.panel {
+  margin-bottom: 0px;
+}
+hr {
+  border-color: #8f2041;
+  margin: 0 0 20px 0;
+}
+.page-header {
+  margin-bottom: 5px;
+  font-weight: 600;
+}

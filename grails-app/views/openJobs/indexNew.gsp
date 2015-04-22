@@ -12,24 +12,52 @@
 </head>
 <body>
 	<div class="col-xs-12 hidden-xs" style="padding-bottom: 50px;">
-		<h1 class="page-header">Open Jobs - <small>${contractorName}</small></h1>
+		<h1 class="page-header">Open Jobs <small>${contractorName}</small></h1>
+		<hr />
 		<g:if test="${flash.message}">
 			<div class="message" role="status">
 				${flash.message}
 			</div>
 		</g:if>
-		<table class="table table-bordered" data-page-list="[5, 10, 20, 50, 100, 200]" data-show-export="true" data-pagination="true" data-toggle="table" data-url="${request.contextPath }/openJobs/index.json">
+			<div class="row">
+		<div class="col-lg-12 collapse" id="filterPane">
+			<form class="form form-inline" id="filtersForm">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+							<a id="clearFilters" class="btn btn-xs btn-danger"><i class="fa fa-fw fa-times"></i> Clear Filter</a>
+							<button type="submit" class="btn btn-info btn-xs" id="filterBtn"><i class="fa fa-fw fa-filter"></i> Apply Filter</button>
+					</div>
+					<table class="table table-condensed">
+						<tbody>
+							<tr class="text-center">
+								<td style="width: 75px;"></td>
+								<td style="width: 100px;"><label class="control-label">Job ID</label><input type="text" class="form-control input-sm" name="id"/></td>
+								<td style="width: 350px;"><label class="control-label">Address</label><input class="form-control input-sm" name="address"></td>
+								<td style="width: 250px;"><label class="control-label">Category</label><input type="text" class="form-control input-sm" name="category"></td>
+								<td style="width: 250px;"><label class="control-label">Sub-Category</label><input type="text" class="form-control input-sm" name="subCategory"></td>
+								<td style="width: 125px;"><label class="control-label">Date Issued</label><input type="text" class="form-control input-sm" name="dateIssued"></td>
+								<td style="width: 125px;"><label class="control-label">Priority</label><input type="text" class="form-control input-sm" name="priority"></td>
+								<td style="width: 100px;"><label class="control-label">Filter 1</label><input type="text" class="form-control input-sm" name="filter1"></td>
+								<td style="width: 100px;"><label class="control-label">Filter 2</label><input type="text" class="form-control input-sm" name="filter2"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</form>
+		</div>
+	</div>	
+		<table id="listTable" data-classes="table table-bordered table-condensed" data-page-list="[5, 10, 20, 50, 100, 200]" data-query-params="queryParams" data-pagination="true"  data-side-pagination="server" data-toggle="table" data-url="${request.contextPath }/openJobs/index.json">
 			<thead>
 					<tr>
 						<th class="text-center" data-field="id" data-formatter="jobShowFormatter" data-width="75"></th>
 						<th class="text-center" data-width="100" data-sortable="true" data-field="id">Job ID</th>
-						<th class="text-center" data-field="address" data-sortable="true">Address</th>
+						<th class="text-center" data-width="350" data-field="address" data-sortable="true">Address</th>
 						<th class="text-center" data-width="250" data-sortable="true" data-field="category">Category</th>
 						<th class="text-center" data-width="250" data-sortable="true" data-field="subCategory">Sub-Category</th>						
 						<th class="text-center" data-width="125" data-sortable="true" data-field="dateInformed" data-formatter="dateFormatter">Date Job Issued</th>
-						<th class="text-center" data-field="priority" data-sortable="true" data-formatter="priorityFormatter">Priority</th>
-						<th class="text-center" data-field="filter1" data-sortable="true">Filter 1</th>
-						<th class="text-center" data-field="filter2" data-sortable="true">Filter 2</th>
+						<th class="text-center" data-width="125" data-field="priority" data-sortable="true" data-formatter="priorityFormatter">Priority</th>
+						<th class="text-center" data-width="100" data-field="filter1" data-sortable="true">Filter 1</th>
+						<th class="text-center" data-width="100" data-field="filter2" data-sortable="true">Filter 2</th>
 					</tr>
 				</thead>
 			</table>

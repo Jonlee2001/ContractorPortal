@@ -134,6 +134,7 @@
 			<table class="table">
 				<thead>
 					<tr>
+						<th style="width: 100px;"/>
 						<th class="col-xs-3">Filename</th>
 						<th class="col-xs-7">Comments</th>
 						<th class="col-xs-2">Date</th>
@@ -143,6 +144,7 @@
 					test="${PMMS.Jobfiles.findAllByIdno(openJobsInstance.id).size() > 0 }">
 					<g:each in="${PMMS.Jobfiles.findAllByIdno(openJobsInstance.id) }">
 						<tr>
+							<td><a href="file://${it.filename }" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-download"></i> Download</a></td>
 							<td>
 								${it}
 							</td>

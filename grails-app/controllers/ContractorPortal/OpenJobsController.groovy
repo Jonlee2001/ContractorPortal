@@ -24,11 +24,29 @@ class OpenJobsController {
 	DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SS")
 	DateFormat df2 = new SimpleDateFormat("dd/MM/yyyy HH:mm")
     def index(Integer max) {
-        params.max = params.limit ? 50:100
+		if(!params.max){
+			params.max = 10
+		}
 		def currentUser = springSecurityService.currentUser
 		def c = OpenJobs.createCriteria()
 		
 			def results =  c.list(params){
+				if (params.f){
+					params.f.each(){key,value ->
+						if(value != '' ){
+							if(key == 'id'){
+								eq('id',value.toLong())
+							}else if(key == 'filter1'){
+								eq('filter1',value.toInteger())
+							}else if(key == 'filter2'){
+								eq('filter2',value.toInteger())
+							}else{
+								ilike(key, '%'+value+'%')
+							}
+						}
+					}
+					
+				}
 				contractor{
 					if (SpringSecurityUtils.ifNotGranted('ROLE_ADMIN')){
 						
@@ -37,9 +55,9 @@ class OpenJobsController {
 				}
 			}
 		withFormat{
-			'json'{ render results as JSON}
+			'json'{ respond ("total": results.getTotalCount(), "rows": results ) as JSON}
 			'*'{ //respond results, model:[openJobsInstanceCount: results.totalCount, contractorName: currentUser.contractor]
-				render view: "indexNew"
+				render (view: "indexNew", model:[contractorName: currentUser.contractor])
 				}
 		}
         

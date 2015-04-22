@@ -35,29 +35,29 @@
 <r:layoutResources />
 </head>
 <body>
-	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas" style="margin-top: 60px;">
-	 	<div class="form" style="margin: 10px;">
-	 		<h3>Filters</h3>
-  			<div class="form-group">
-			    <label for="category" class="control-label">Category</label>
-			    <g:select name="category" class="form-control input-sm" from="${ContractorPortal.OpenJobs.constraints.category.inList }"/>
-			  </div>
-			  <div class="form-group">
-			    <label for="dateIssued" class="control-label">Date Job Issued</label>
-			    <input type="date" class="form-control input-sm" id="dateIssued" name="dateIssued" style="width:60%">
-			  </div>
-			</div>
-    	</div>
-	<sec:ifLoggedIn>
 	<div class="row">
-		<div class="nav navbar-default navbar-fixed-top">
-		<ul class="nav navbar-nav navbar-left">
-			<li>
-				<img src="${resource(dir: 'images', file: 'PMMSlogo.png')}" height="60px" style="margin-left: 20px; padding: 5px;" />
-			</li>
-			<li><button type="button" class="btn btn-sm btn-default navbar-btn" data-toggle="offcanvas" data-target=".navmenu">Filters</button></li>
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <img class="navbar-brand" src="${resource (dir: 'images', file: 'PMMSlogo.png') }" style="width: 130px; padding: 5px;"/>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-left">
+			<li><button class="btn btn-primary btn-sm filterPaneBtn navbar-btn" type="button"
+					data-toggle="collapse" data-target="#filterPane"
+					aria-expanded="false" aria-controls="filterPane" style="margin-right: 10px;">
+					<i class="fa fa-fw fa-caret-down downIcon"></i><i class="fa fa-fw fa-caret-up upIcon hidden"></i> Filters
+				</button></li>
+				<li><button id="refresh" class="btn btn-sm navbar-btn btn-success"><i class="fa fa-fw fa-refresh"></i> Refresh</button></li>
 		</ul>
-			 <ul class="nav navbar-nav navbar-right" style="margin-right: 20px;">
+		
+		  <ul class="nav navbar-nav navbar-right" style="margin-right: 20px;">
 		    <sec:ifNotLoggedIn>
 			<li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <strong class="caret"></strong></a>
@@ -81,24 +81,23 @@
 			  </div>
 		  </sec:ifNotLoggedIn>
 		  <sec:ifLoggedIn>
-			
 			<li>
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i>&nbsp;
-				 <sec:loggedInUserInfo field="username"/><span class="caret"></span>
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg fa-fw"></i>
+				<span class="hidden-sm"><sec:loggedInUserInfo field="username"/></span> <span class="caret"></span>
 			  </a>
 			  <ul class="dropdown-menu" role="menu">
 				<li class="text-center">
 				<g:form controller="logout" action="index">
-					<button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-log-out"></span> Logout</button>
+					<button type="submit" class="btn btn-danger btn-sm"><span class="fa fa-sign-out fa-fw fa-lg"></span> Logout</button>
 				</g:form>
 				</li>
 			  </ul>
 			  </li>
 		  </sec:ifLoggedIn>
 		   </ul>
-		</div>
-		</div>
-	</sec:ifLoggedIn>
+        </div><!--/.nav-collapse -->
+     
+    </div>
 	<div class="container">
 		<g:layoutBody />
 	<nav class="navbar navbar-inverse navbar-fixed-bottom" style="font-size: 0.9em; min-height: 40px;">
