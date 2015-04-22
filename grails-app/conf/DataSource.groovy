@@ -45,7 +45,7 @@ environments {
 			driverClassName = "com.mysql.jdbc.Driver"
 			username = "root"
 			password = "himson19155"
-            url = "jdbc:mysql://dbhost:3306/contractor_portal"
+            url = "jdbc:mysql://pmms-sql:3306/contractor_portal"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true
