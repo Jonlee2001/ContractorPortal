@@ -15,24 +15,24 @@
 					- ${openJobsInstance.subCategory }
 				</small>
 			</h1>
-			<div class="form-group">
+			<div style="margin-bottom: 10px;">
 				<g:link action="index" class="btn btn-sm btn-primary">
-					<i class="glyphicon glyphicon-chevron-left"></i> Back
+					<i class="fa fa-fw fa-chevron-left"></i> Back
 				</g:link>
-			</div>
+			
 			<sec:ifAnyGranted roles="ROLE_ADMIN">
-				<div class="form-group">
+				
 					<g:link class="btn btn-default btn-sm" action="edit"
 						resource="${openJobsInstance}">
-						<g:message code="default.button.edit.label" default="Edit" />
+						<i class="fa fa-fw fa-pencil"></i> <g:message code="default.button.edit.label" default="Edit" />
 					</g:link>
-				</div>
-				<div class="form-group">
+				
 					<button class="btn btn-sm btn-danger" id="deleteBtn">
-						${message(code: 'default.button.delete.label', default: 'Delete')}
+						<i class="fa fa-fw fa-trash-o"></i> ${message(code: 'default.button.delete.label', default: 'Delete')}
 					</button>
-				</div>
+				
 			</sec:ifAnyGranted>
+			</div>
 		</div>
 		<div class="col-xs-4 pull-right text-right" style="margin-top: 35px;">
 			<h4 class="pull-right">Last Updated: <g:formatDate date="${openJobsInstance.lastUpdated}" format="dd/MM/yyyy HH:mm"/></h4><br />

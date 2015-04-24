@@ -14,12 +14,17 @@
 	<div class="col-xs-12 hidden-xs" style="padding-bottom: 50px;">
 		<h1 class="page-header">Open Jobs <small>${contractorName}</small></h1>
 		<hr />
+		<button class="btn btn-primary btn-xs filterPaneBtn" type="button" data-toggle="collapse" data-target="#filterPane" aria-expanded="false" aria-controls="filterPane" style="margin-right: 10px;">
+			<i class="fa fa-fw fa-caret-down downIcon"></i><i class="fa fa-fw fa-caret-up upIcon hidden"></i> Filters
+		</button>
+		<button id="refresh" class="btn btn-xs btn-success"><i class="fa fa-fw fa-refresh"></i> Refresh</button>
+	
 		<g:if test="${flash.message}">
 			<div class="message" role="status">
 				${flash.message}
 			</div>
 		</g:if>
-			<div class="row">
+		<div class="row" style="margin-top: 15px;">
 		<div class="col-lg-12 collapse" id="filterPane">
 			<form class="form form-inline" id="filtersForm">
 				<div class="panel panel-default">
@@ -36,7 +41,16 @@
 								<td style="width: 250px;"><label class="control-label">Category</label><input type="text" class="form-control input-sm" name="category"></td>
 								<td style="width: 250px;"><label class="control-label">Sub-Category</label><input type="text" class="form-control input-sm" name="subCategory"></td>
 								<td style="width: 125px;"><label class="control-label">Date Issued</label><input type="text" class="form-control input-sm" name="dateIssued"></td>
-								<td style="width: 125px;"><label class="control-label">Priority</label><input type="text" class="form-control input-sm" name="priority"></td>
+								<td style="width: 125px;">
+									<label class="control-label">Priority</label>
+									<select name="priority" class="form-control input-sm">
+										<option value=""></option>
+										<option value="1">Today</option>
+										<option value="7">1 Week</option>
+										<option value="14">2 Weeks</option>
+										<option value="30">4 weeks</option>
+									</select>
+								</td>
 								<td style="width: 100px;"><label class="control-label">Filter 1</label><input type="text" class="form-control input-sm" name="filter1"></td>
 								<td style="width: 100px;"><label class="control-label">Filter 2</label><input type="text" class="form-control input-sm" name="filter2"></td>
 							</tr>

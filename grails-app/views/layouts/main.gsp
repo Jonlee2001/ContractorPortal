@@ -18,18 +18,6 @@
 	href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
 <link rel="apple-touch-icon" sizes="114x114"
 	href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<!-- <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly/bootstrap.min.css">-->
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
-	
- <!-- Latest compiled and minified JavaScript -->
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 <g:layoutHead />
 <g:javascript library="application" />
 <r:layoutResources />
@@ -48,16 +36,7 @@
           <img class="navbar-brand" src="${resource (dir: 'images', file: 'PMMSlogo.png') }" style="width: 130px; padding: 5px;"/>
         </div>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-left">
-			<li><button class="btn btn-primary btn-sm filterPaneBtn navbar-btn" type="button"
-					data-toggle="collapse" data-target="#filterPane"
-					aria-expanded="false" aria-controls="filterPane" style="margin-right: 10px;">
-					<i class="fa fa-fw fa-caret-down downIcon"></i><i class="fa fa-fw fa-caret-up upIcon hidden"></i> Filters
-				</button></li>
-				<li><button id="refresh" class="btn btn-sm navbar-btn btn-success"><i class="fa fa-fw fa-refresh"></i> Refresh</button></li>
-		</ul>
-		
-		  <ul class="nav navbar-nav navbar-right" style="margin-right: 20px;">
+          <ul class="nav navbar-nav navbar-right" style="margin-right: 20px;">
 		    <sec:ifNotLoggedIn>
 			<li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <strong class="caret"></strong></a>

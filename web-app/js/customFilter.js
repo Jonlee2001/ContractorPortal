@@ -24,8 +24,12 @@ function longTextFormatter(value){
 		return value;
 }
 function dateFormatter(value){
+	if (value != null){
 	var date = new Date(value);
 	return date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();
+	}else{
+		return " ";
+	}
 }
 function priorityFormatter(value){
 	//var priorityClass = value.toLowerCase()

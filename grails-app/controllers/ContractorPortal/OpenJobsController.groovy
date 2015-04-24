@@ -36,6 +36,8 @@ class OpenJobsController {
 						if(value != '' ){
 							if(key == 'id'){
 								eq('id',value.toLong())
+							}else if(key == 'priority'){
+								eq('priority',value.toInteger())
 							}else if(key == 'filter1'){
 								eq('filter1',value.toInteger())
 							}else if(key == 'filter2'){
@@ -53,6 +55,7 @@ class OpenJobsController {
 						eq('id',currentUser.contractor.id)
 					}
 				}
+				lt('jobType', 6)
 			}
 		withFormat{
 			'json'{ respond ("total": results.getTotalCount(), "rows": results ) as JSON}
