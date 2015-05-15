@@ -77,7 +77,7 @@
         </div><!--/.nav-collapse -->
      
     </div>
-	<div class="container">
+	<div class="container-fluid">
 		<g:layoutBody />
 	<nav class="navbar navbar-inverse navbar-fixed-bottom" style="font-size: 0.9em; min-height: 40px;">
 		<div class="col-xs-2"></div>

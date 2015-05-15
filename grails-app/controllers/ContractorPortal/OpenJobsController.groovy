@@ -247,6 +247,18 @@ class OpenJobsController {
 		tblJob.save(flush: true, failOnError: true)
 		redirect (action: 'index')
 	}
+	@Transactional
+	def rejectJob() {
+		def tblJob = Tbljobs.get(params.id.toInteger())
+		tblJob.teamJobs = 99
+		tblJob.filter2 = ''
+		tblJob.assigneeViewed = 1
+		tblJob.cViewed = 0
+		tblJob.comments += "\r\n*** Job Rejected on " +  df2.format(new Date()) + " by " + springSecurityService.currentUser.username + " ***\r\n"
+		tblJob.lastedited = new Date()
+		tblJob.save(flush: true, failOnError: true)
+		redirect (action: 'index')
+	}
 	def exportJobs() {
 		def currentUser = springSecurityService.currentUser
 		def headers = ['JobId', 'Address', 'Category', 'Sub-Catgeory', 'Date Issued', 'Priority']
