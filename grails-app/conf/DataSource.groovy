@@ -22,7 +22,7 @@ environments {
 			driverClassName = "com.mysql.jdbc.Driver"
 			username = "root"
 			password = "himson19155"
-			url = "jdbc:mysql://192.168.0.10:3306/contractor_portal"
+			url = "jdbc:mysql://192.168.0.151:3306/contractor_portal"
         }
 		dataSource_pmms {
 			dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
@@ -30,7 +30,7 @@ environments {
 			driverClassName = "com.mysql.jdbc.Driver"
 			username = "root"
 			password = "himson19155"
-			url = "jdbc:mysql://192.168.0.10:3306/pmms"
+			url = "jdbc:mysql://192.168.0.151:3306/PMMS"
 		}
     }
     test {
@@ -45,7 +45,7 @@ environments {
 			driverClassName = "com.mysql.jdbc.Driver"
 			username = "root"
 			password = "himson19155"
-            url = "jdbc:mysql://pmms-sql:3306/contractor_portal"
+            url = "jdbc:mysql://192.168.0.151:3306/contractor_portal"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true
@@ -73,7 +73,7 @@ environments {
 			driverClassName = "com.mysql.jdbc.Driver"
 			username = "root"
 			password = "himson19155"
-			url = "jdbc:mysql://pmms-sql:3306/pmms"
+			url = "jdbc:mysql://192.168.0.151:3306/PMMS"
 			properties {
 				// See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
 				jmxEnabled = true
