@@ -60,7 +60,7 @@ class OpenJobsController {
 		withFormat{
 			'json'{ respond ("total": results.getTotalCount(), "rows": results ) as JSON}
 			'*'{ //respond results, model:[openJobsInstanceCount: results.totalCount, contractorName: currentUser.contractor]
-				render (view: "indexNew", model:[contractorName: currentUser.contractor])
+				render (view: "indexNew", model:[contractorName: currentUser.contractor, openJobsInstanceList: results])
 				}
 		}
         

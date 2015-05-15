@@ -76,9 +76,10 @@
 				</thead>
 			</table>
 	</div>
-	<div class="col-xs-12 visible-xs">
+	<div class="col-xs-12 visible-xs" style="margin-top: 50px; padding-bottom: 0px;">
 		<ul class="list-group">
 			<g:each in="${openJobsInstanceList }" var="job">
+			<g:link action="show" id="${job.id }">
 				<li class="list-group-item">
 					<div class="row">
 						<div class="col-xs-2">
@@ -91,7 +92,7 @@
 							${job.subCategory }
 						</div>
 						<div class="col-xs-2">
-							${job.priority}
+							<i class="fa fa-fw fa-flag priority-${job.priority}"></i>
 						</div>
 						<div class="col-xs-2">
 							<g:if test="${openJobsInstance?.filter2 == 1 }">
@@ -112,6 +113,7 @@
 						</div>
 					</div>
 				</li>
+				</g:link>
 			</g:each>
 		</ul>
 	</div>

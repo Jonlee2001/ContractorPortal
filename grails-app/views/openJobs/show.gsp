@@ -96,16 +96,16 @@
 						<label class="control-label">Work Priority:</label>
 						<p class="form-control-static " style="font-size: 1.2em;">
 							<g:if test="${openJobsInstance.priority == 1 }">
-								<i class="glyphicon glyphicon-flag text-danger" title="1 Day"></i> Today
+								<i class="fa fa-fw fa-flag text-danger" title="1 Day"></i> Today
 							</g:if>
 							<g:if test="${openJobsInstance.priority == 7 }">
-								<i class="glyphicon glyphicon-flag text-success" title="7 Days"></i> 7 Days
+								<i class="fa fa-fw fa-flag text-success" title="7 Days"></i> 7 Days
 							</g:if>
 							<g:if test="${openJobsInstance.priority == 14 }">
-								<i class="glyphicon glyphicon-flag text-info" title="14 Days"></i> 14 Days
+								<i class="fa fa-fw fa-flag text-info" title="14 Days"></i> 14 Days
 							</g:if>
 							<g:if test="${openJobsInstance.priority == 30 }">
-								<i class="glyphicon glyphicon-flag text-warning" title="30 Days"></i> 30 days
+								<i class="fa fa-fw fa-flag text-warning" title="30 Days"></i> 30 days
 							</g:if>
 						</p>
 					</div>
@@ -128,7 +128,7 @@
 			<h3>
 				Files
 				<button class="btn btn-xs btn-success" data-toggle="modal" data-target="#uploadModal">
-					<i class="glyphicon glyphicon-plus"></i> Add
+					<i class="fa fa-fw fa-plus"></i> Add
 				</button>
 			</h3>
 			<table class="table">
@@ -144,7 +144,7 @@
 					test="${PMMS.Jobfiles.findAllByIdno(openJobsInstance.id).size() > 0 }">
 					<g:each in="${PMMS.Jobfiles.findAllByIdno(openJobsInstance.id) }">
 						<tr>
-							<td><a href="file://${it.filename }" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-download"></i> Download</a></td>
+							<td><a href="file://${it.filename }" class="btn btn-xs btn-success"><i class="fa fa-fw fa-download"></i> Download</a></td>
 							<td>
 								${it}
 							</td>
@@ -187,8 +187,8 @@
 					</g:form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button>
-					<button type="button" class="btn btn-sm btn-primary" id="uploadFiles"><i class="glyphicon glyphicon-upload"></i> Upload</button>
+					<button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><i class="fa fa-fw fa-times"></i> Close</button>
+					<button type="button" class="btn btn-sm btn-primary" id="uploadFiles"><i class="fa fa-fw fa-upload"></i> Upload</button>
 				</div>
 			</div>
 		</div>
