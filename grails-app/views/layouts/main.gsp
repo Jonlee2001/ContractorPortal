@@ -23,7 +23,7 @@
 <r:layoutResources />
 </head>
 <body>
-	<div class="row">
+	
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 
         <div class="navbar-header">
@@ -37,28 +37,6 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right" style="margin-right: 20px;">
-		    <sec:ifNotLoggedIn>
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <strong class="caret"></strong></a>
-			  <div class="dropdown-menu" style="padding: 15px; width: 275px;">
-				<g:form class="form" role="form" url="PMMS/j_spring_security_check" method="POST">
-				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-user"></i></span>
-						<input type="text" placeholder="Username" class="form-control" name='j_username' id='username'>
-					</div>
-					</div>
-					<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-						<input type="password" placeholder="Password" class="form-control" name='j_password' id='password'>
-					</div>
-					</div>
-					<button type="submit" class="btn btn-success btn-sm"><span class="fa fa-sign-in"></span>  Sign in</button>
-					<g:link class="btn btn-primary btn-sm"><span class="fa fa-question"></span>  Reset Password</g:link>
-				</g:form>
-			  </div>
-		  </sec:ifNotLoggedIn>
 		  <sec:ifLoggedIn>
 			<li>
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg fa-fw"></i>
@@ -75,8 +53,7 @@
 		  </sec:ifLoggedIn>
 		   </ul>
         </div><!--/.nav-collapse -->
-     
-    </div>
+     </div>
 	<div class="container-fluid">
 		<g:layoutBody />
 	<nav class="navbar navbar-inverse navbar-fixed-bottom" style="font-size: 0.9em; min-height: 40px;">

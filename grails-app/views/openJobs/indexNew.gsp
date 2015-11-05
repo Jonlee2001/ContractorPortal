@@ -11,7 +11,7 @@
 
 </head>
 <body>
-	<div class="col-xs-12 hidden-xs" style="padding-bottom: 50px;">
+	<div class="col-xs-12">
 		<h1 class="page-header">Open Jobs <small>${contractorName}</small></h1>
 		<hr />
 		<button class="btn btn-primary btn-xs filterPaneBtn" type="button" data-toggle="collapse" data-target="#filterPane" aria-expanded="false" aria-controls="filterPane" style="margin-right: 10px;">
@@ -75,7 +75,7 @@
 					</tr>
 				</thead>
 			</table>
-	</div>
+</div>
 	<div class="col-xs-12 visible-xs" style="margin-top: 50px; padding-bottom: 0px;">
 		<ul class="list-group">
 			<g:each in="${openJobsInstanceList }" var="job">
